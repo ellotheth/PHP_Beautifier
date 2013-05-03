@@ -402,7 +402,7 @@ final class PHP_Beautifier_Filter_Default extends PHP_Beautifier_Filter
             $this->oBeaut->add(' ' . $sTag);
             $this->oBeaut->addNewLineIndent();
         } else {
-            $aLines = explode("\n", $sTag);
+            $aLines = preg_split("/\r\n|\r|\n/", $sTag);
 
             $allWithAsterisk=true;
             for ($x=1;$x<(count($aLines)-1);$x++) {
